@@ -4,16 +4,16 @@ require "exam"
 
 describe Exam do
 	before :each do
-		#Dos tipos de pregunta
+
 		@PVF = TrueFalse.new("2.-) Es apropiado que una clase Tablero herede de una clase Juego.")
 		@pregunta1 = SimpleSelection.new("¿Cuál es el resultado de sumar 2 y 5?", ["a) 4", "b) 5","c) 6","d) Ninguna de las anteriores"])		
- 		@preg1 = "1.-)¿Qúe día es hoy?"
+ 		@preg1 = "1.-)¿Que día es hoy?"
 		@opPreg1 = {
 			"a" => "Lunes",
 			"b" => "Martes",
 			"c" => "Miercoles",
 			"d" => "..."
-		}
+			}
 		
 		@PSS = SimpleSelection.new(@preg1, @opPreg1)
 		
@@ -84,7 +84,7 @@ describe Exam do
 			expect(@PVF.instance_of? TrueFalse).to eq(true)
 		end
 	end
-	
+	# PRUEBAS COMPARABLES
 	describe "# Comparaciones entre preguntas" do
 	    it "Pregunta menor" do
 	    	test = @NP1 < @NP2
@@ -149,7 +149,7 @@ describe Exam do
 			expect(VarElmAntes.to_s).to eq("9 7 8")
 		end
 
-		it "Prueba para la siguiente relaciónn de preguntas de selección simple (imprimir de la 1 - 5 y de la 5 a la 1)." do
+		it "Prueba para las preguntas selección simple (imprimir de la 1 - 5 y de la 5 a la 1)." do
  			Examen = Lista.new()
 			Examen.push(@NP1)
  			Examen.push(@NP2)
@@ -160,12 +160,13 @@ describe Exam do
 			expect(Examen.imprinver).to eq(@NP5.to_s + " " + @NP4.to_s + " " + @NP3.to_s + " " + @NP2.to_s + " " +@NP1.to_s)
 		
 		end
-		
-		it "Prueba enumerable maximo" do
+
+		# PRUEBAS ENUMERABLES 		
+		it "Prueba enumerable una" do
 			expect(Examen.max).to eq(@NP4)
 		end
 		
-		it "Prueba enumerable minimo" do
+		it "Prueba enumerable dos" do
 			expect(Examen.min).to eq(@NP1)
 		end
 

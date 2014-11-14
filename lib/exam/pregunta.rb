@@ -12,7 +12,7 @@ class Pregunta
 	end
 	
 	def <=>(other)
-    	return nil unless other.is_a? Pregunta
-    	@dificultad <=> other.dificultad
-  end
+	    	return nil unless other.is_a? Pregunta
+	    	@dificultad <=> other.dificultad				
+  	end
 end

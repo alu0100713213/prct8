@@ -8,7 +8,6 @@ class Node
 end
 
 class Lista
-
 	include Enumerable	
 	attr_reader :head
 	def initialize()	
@@ -72,20 +71,20 @@ class Lista
 
 	end
 	
-    def imprinver
-        aux = @head
-        while(aux.next != nil)
-        	aux = aux.next
-        end
+	def imprinver
+		aux = @head
+		while(aux.next != nil)
+			aux = aux.next
+		end
 
-        cadena = "#{aux.value.to_s}"
-        while(aux.prev != nil)
-            aux = aux.prev
-            cadena += " "
-            cadena += "#{aux.value.to_s}"
-        end
-        cadena
-    end
+		cadena = "#{aux.value.to_s}"
+		while(aux.prev != nil)
+		    aux = aux.prev
+		    cadena += " "
+		    cadena += "#{aux.value.to_s}"
+		end
+		cadena
+	end
 	
 	def each
 		aux = @head
@@ -94,6 +93,5 @@ class Lista
 			aux = aux.next 
 		end
 	end 
-	
 end
 
