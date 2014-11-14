@@ -7,7 +7,7 @@ task :spec do
 sh "rspec -I. spec/exam_spec.rb"
 end
 
-desc "ejecutar con documentacion"
+desc "Ejecutar con toda la Documentación"
 task :doc do
 	sh "rspec -I. spec/exam_spec.rb --format documentation"
 end
