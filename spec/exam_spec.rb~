@@ -169,6 +169,5 @@ describe Exam do
 			expect(Examen.min).to eq(@NP1)
 		end
 
-	end
-	
+	end	
 end
