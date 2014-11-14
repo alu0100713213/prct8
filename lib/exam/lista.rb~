@@ -1,9 +1,17 @@
 Node = Struct.new(:value, :next, :prev)
 
+class Node
+	include Comparable
+	def <=>(other)
+    	value <=> other.value   	
+    end
+end
+
 class Lista
 
+	include Enumerable	
 	attr_reader :head
-	def initialize()
+	def initialize()	
 		@head
 	end
 
@@ -15,18 +23,15 @@ class Lista
 		else
 			return nil
 		end
-
 	end
 
 	def push(value)
 		if(@head != nil)
 			aux = @head
 			while (aux.next !=nil)
-				auxprev = aux
 				aux = aux.next
 			end
-
-			aux.next = Node.new(value, nil, auxprev)
+			aux.next = Node.new(value, nil, aux)
 		else
 			@head = Node.new(value, nil, nil)
 		end
@@ -35,7 +40,7 @@ class Lista
 	
 	def mulpush(valores)
                 valores.each do |x| 
-                push(x)
+                	push(x)
                 end
 
         end
@@ -47,12 +52,11 @@ class Lista
                 else
                         @head = Node.new(value, nil, nil)
                 end
-
 	end
 	
 	def mulpushbefore(valores)
                 valores.each do |x| 
-                pushbefore(x)
+                	pushbefore(x)
                 end
         end
 
@@ -64,15 +68,15 @@ class Lista
 			cadena += " "
 			cadena += "#{aux.value.to_s }"
 		end	
-	
 		cadena
+
 	end
 	
     def imprinver
         aux = @head
         while(aux.next != nil)
         	aux = aux.next
-     end
+        end
 
         cadena = "#{aux.value.to_s}"
         while(aux.prev != nil)
@@ -81,8 +85,15 @@ class Lista
             cadena += "#{aux.value.to_s}"
         end
         cadena
-
     end
+	
+	def each
+		aux = @head
+		while(aux.next != nil)
+			yield aux.value  
+			aux = aux.next 
+		end
+	end 
 	
 end
 
