@@ -1,5 +1,5 @@
 require 'spec_helper'
- require 'exam'
+ require 'my-gem'
 
  describe Exam do
    it 'requires additional testing'
